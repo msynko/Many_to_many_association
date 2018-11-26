@@ -203,6 +203,8 @@ class CRM
     call_search_by_option(user_selected)
 
   end
-
+  at_exit do
+    ActiveRecord::Base.connection.close
+  end
 
 end
