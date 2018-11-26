@@ -2,10 +2,6 @@ require "./contact.rb"
 
 class CRM
 
-  def initialize
-
-  end
-
   def main_menu
     while true # repeat indefinitely
       print_main_menu
@@ -39,22 +35,17 @@ class CRM
     end
   end
 
-
-
   def add_new_contact
     puts "Enter first name:"
-    print "> "
     first_name = gets.chomp
     puts "Enter last name:"
-    print "> "
     last_name = gets.chomp
     puts "Enter email:"
-    print "> "
     email = gets.chomp
     puts "Enter note:"
-    print "> "
     note = gets.chomp
-    contact = Contact.create(first_name, last_name, email, note)
+    contact = Contact.create(first_name:first_name,
+      last_name:last_name, email: email, note: note)
     puts "-------------"
     puts "#{first_name} #{last_name} added."
     puts "-------------"
@@ -64,7 +55,6 @@ class CRM
 
   def get_id
     puts "Enter the id of the contact you wish to modify:"
-    print "> "
     user_id = gets.chomp.to_i
     return user_id
   end
@@ -183,7 +173,6 @@ class CRM
 
   def get_search_value
     puts "Enter the value to search by:"
-    print "> "
     value = gets.chomp
     return value
   end
@@ -203,8 +192,12 @@ class CRM
     call_search_by_option(user_selected)
 
   end
+
   at_exit do
     ActiveRecord::Base.connection.close
   end
 
 end
+
+ crm = CRM.new
+ crm.main_menu
