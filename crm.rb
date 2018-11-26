@@ -103,7 +103,6 @@ class CRM
 
   def get_modify_value
     puts "Enter the new value:"
-    print "> "
     value = gets.chomp
     return value
   end
@@ -134,7 +133,7 @@ class CRM
   def display_all_contacts
     puts "-------------"
     puts "Contacts:"
-    puts Contact.contacts
+    puts Contact.all
     puts "-------------"
   end
 
