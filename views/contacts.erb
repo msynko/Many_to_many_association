@@ -1,12 +1,27 @@
-<h1>Contacts</h1>
-
-<ul>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="/styles.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+   <h1>Bitmaker CRM</h1>
+   <ul class = nav>
+   <li ><a href="/">Home</a></li>
+   <li ><a href="#">Add Contact</a> </li>
+   <li ><a href="/about">About</a></li>
+   </ul>
+  <body>
+  <div class = sum> <p>There are <%= @contacts.count %> contacts.</p> </div>
+  <ul class = names>
   <% @contacts.each do |contact| %>
-    <li>
-     <%= contact.first_name %>
-     <%= contact.last_name %>
-     <%= contact.email %>
-     <%= contact.note %>
-     </li>
-  <% end %>
-</ul>
+  <li> <%= contact.first_name%> <%=contact.last_name%> (<%= contact.email%>)
+    <div><a href="#">Edit</a> | <a href="#">Delete</a> </div>
+  </li>
+      <% end %>
+    </ul>
+    <footer>
+      © Bitmaker 2018
+    </footer>
+  </body>
+</html>
